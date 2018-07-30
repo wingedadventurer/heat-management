@@ -1,0 +1,130 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://instances/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tilesets/TilesetWalls.tres" type="TileSet" id=2]
+[ext_resource path="res://tilesets/TilesetDecor.tres" type="TileSet" id=3]
+[ext_resource path="res://instances/Teleporter.tscn" type="PackedScene" id=4]
+
+[node name="LevelEmpty" type="Node2D" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Player" parent="." index="0" instance=ExtResource( 1 )]
+
+heat_capacity = 25.0
+
+[node name="TileMaps" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMapBack" type="TileMap" parent="TileMaps" index="0"]
+
+z_index = -50
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -39, 13, 0, -38, 13, 0, -37, 13, 0, -36, 13, 0, -35, 13, 0, -34, 13, 0, -33, 13, 0, -32, 13, 0, -31, 13, 0, -30, 13, 0, -29, 13, 0, -28, 13, 0, -27, 13, 0, 1507283, -1610612721, 0, 1507284, 1610612749, 0, 1507285, 1610612749, 0, 1507286, 1610612749, 0, 1507287, 1610612749, 0, 1507288, 1610612749, 0, 1507289, 1610612749, 0, 1507290, 1610612749, 0, 1507291, 1610612749, 0, 1507292, 1610612749, 0, 1507293, 1610612749, 0, 1507294, 1610612749, 0, 1507295, 1610612749, 0, 1507296, 1610612751, 0, 1572819, -1610612723, 0, 1572820, 23, 0, 1572821, 23, 0, 1572822, 23, 0, 1572823, 23, 0, 1572824, 23, 0, 1572825, 23, 0, 1572826, 23, 0, 1572827, 23, 0, 1572828, 23, 0, 1572829, 23, 0, 1572830, 23, 0, 1572831, 23, 0, 1572832, -1073741811, 0, 1638355, -1610612723, 0, 1638356, 23, 0, 1638357, 23, 0, 1638358, 23, 0, 1638359, 23, 0, 1638360, 23, 0, 1638361, 23, 0, 1638362, 23, 0, 1638363, 23, 0, 1638364, 23, 0, 1703891, -1610612723, 0, 1703892, 23, 0, 1703893, 23, 0, 1703894, 23, 0, 1703895, 23, 0, 1703896, 23, 0, 1703897, 23, 0, 1703898, 23, 0, 1703899, 23, 0, 1769427, -1610612723, 0, 1769428, 23, 0, 1769429, 23, 0, 1769430, 23, 0, 1769431, 23, 0, 1769432, 23, 0, 1769433, 23, 0, 1769434, 23, 0, 1769435, 23, 0, 1769436, 23, 0, 1834963, -1610612723, 0, 1834964, 23, 0, 1834965, 23, 0, 1834966, 23, 0, 1834967, 23, 0, 1834968, 23, 0, 1834969, 23, 0, 1834970, 23, 0, 1834971, 23, 0, 1834972, 23, 0, 1900499, -1610612723, 0, 1900500, 23, 0, 1900501, 23, 0, 1900502, 23, 0, 1900503, 23, 0, 1900504, 23, 0, 1900505, 23, 0, 1900506, 23, 0, 1900507, 23, 0, 1900508, 23, 0, 1966035, -1610612723, 0, 1966036, 23, 0, 1966037, 23, 0, 1966038, 23, 0, 1966039, 23, 0, 1966040, 23, 0, 1966041, 23, 0, 1966042, 23, 0, 1966043, 23, 0, 1966044, 23, 0, 2031571, -1610612723, 0, 2031572, 23, 0, 2031573, 23, 0, 2031574, 23, 0, 2031575, 23, 0, 2031576, 23, 0, 2031577, 23, 0, 2031578, 23, 0, 2031579, 23, 0, 2097107, 15, 0, 2097108, 13, 0, 2097109, 13, 0, 2097110, 13, 0, 2097111, 13, 0, 2097112, 13, 0, 2097113, 13, 0, 2097114, 13, 0, 2097115, 13, 0, 2097116, 13, 0 )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMapWalls" type="TileMap" parent="TileMaps" index="1" groups=[
+"wall",
+]]
+
+z_index = 50
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMapDecor" type="TileMap" parent="TileMaps" index="2"]
+
+scale = Vector2( 2, 2 )
+z_index = 100
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hints" type="Node2D" parent="." index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ThermoWalls" type="Node2D" parent="." index="3"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Meters and Doors" type="Node2D" parent="." index="4"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Steams" type="Node2D" parent="." index="5"]
+
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Teleporter" parent="." index="6" instance=ExtResource( 4 )]
+
+position = Vector2( 0, -96 )
+
+

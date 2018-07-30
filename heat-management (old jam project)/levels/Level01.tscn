@@ -1,0 +1,209 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://instances/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tilesets/TilesetWalls.tres" type="TileSet" id=2]
+[ext_resource path="res://tilesets/TilesetDecor.tres" type="TileSet" id=3]
+[ext_resource path="res://instances/Wall2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://instances/Thermometer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://instances/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://instances/EffectSteam.tscn" type="PackedScene" id=7]
+[ext_resource path="res://instances/Heatzone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://instances/Teleporter.tscn" type="PackedScene" id=9]
+
+[node name="Level01" type="Node2D" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Player" parent="." index="0" instance=ExtResource( 1 )]
+
+z_as_relative = false
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+heat_capacity = 25.0
+
+[node name="TileMaps" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMapBack" type="TileMap" parent="TileMaps" index="0"]
+
+z_index = -50
+z_as_relative = false
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -65538, -1610612725, 0, -65537, -1610612725, 0, -131072, -1610612725, 0, -131071, -1610612725, 0, -39, 13, 0, -38, 13, 0, -37, 13, 0, -36, 13, 0, -35, 13, 0, -34, 13, 0, -33, 13, 0, -32, 13, 0, -31, 13, 0, -30, 13, 0, -29, 13, 0, -28, 13, 0, -27, 13, 0, -2, -1610612725, 0, -1, -1610612725, 0, -65536, -1610612725, 0, -65535, -1610612725, 0, 65534, -1610612725, 0, 65535, -1610612725, 0, 0, -1610612725, 0, 1, -1610612725, 0, 131070, -1610612725, 0, 131071, -1610612725, 0, 65536, -1610612725, 0, 65537, -1610612725, 0, 196606, -1610612725, 0, 196607, -1610612725, 0, 131072, -1610612725, 0, 131073, -1610612725, 0, 262138, 11, 0, 262139, 11, 0, 262140, 11, 0, 262141, 11, 0, 262142, -1610612725, 0, 262143, -1610612725, 0, 196608, -1610612725, 0, 196609, -1610612725, 0, 196610, -1610612725, 0, 196611, -1610612725, 0, 196612, -1610612725, 0, 196613, -1610612725, 0, 196614, -1610612725, 0, 196615, -1610612725, 0, 196616, -1610612725, 0, 196617, -1610612725, 0, 327674, 11, 0, 327675, 11, 0, 327676, 11, 0, 327677, 11, 0, 327678, -1610612725, 0, 327679, -1610612725, 0, 262144, -1610612725, 0, 262145, -1610612725, 0, 262146, -1610612725, 0, 262147, -1610612725, 0, 262148, -1610612725, 0, 262149, -1610612725, 0, 262150, -1610612725, 0, 262151, -1610612725, 0, 262152, -1610612725, 0, 262153, -1610612725, 0, 393210, 11, 0, 393211, 11, 0, 393212, 11, 0, 393213, 11, 0, 393214, -1610612725, 0, 393215, -1610612725, 0, 327680, -1610612725, 0, 327681, -1610612725, 0, 327682, -1610612725, 0, 327683, -1610612725, 0, 327684, -1610612725, 0, 327685, -1610612725, 0, 327686, -1610612725, 0, 327687, -1610612725, 0, 327688, -1610612725, 0, 327689, -1610612725, 0, 393219, -1610612725, 0, 393220, -1610612725, 0, 393221, -1610612725, 0, 393222, -1610612725, 0, 393223, -1610612725, 0, 458756, -1610612725, 0, 458757, -1610612725, 0, 458758, -1610612725, 0, 524292, -1610612725, 0, 524293, -1610612725, 0, 524294, -1610612725, 0, 1507283, -1610612721, 0, 1507284, 1610612749, 0, 1507285, 1610612749, 0, 1507286, 1610612749, 0, 1507287, 1610612749, 0, 1507288, 1610612749, 0, 1507289, 1610612749, 0, 1507290, 1610612749, 0, 1507291, 1610612749, 0, 1507292, 1610612749, 0, 1507293, 1610612749, 0, 1507294, 1610612749, 0, 1507295, 1610612749, 0, 1507296, 1610612751, 0, 1572819, -1610612723, 0, 1572820, 23, 0, 1572821, 23, 0, 1572822, 23, 0, 1572823, 23, 0, 1572824, 23, 0, 1572825, 23, 0, 1572826, 23, 0, 1572827, 23, 0, 1572828, 23, 0, 1572829, 23, 0, 1572830, 23, 0, 1572831, 23, 0, 1572832, -1073741811, 0, 1638355, -1610612723, 0, 1638356, 23, 0, 1638357, 23, 0, 1638358, 23, 0, 1638359, 23, 0, 1638360, 23, 0, 1638361, 23, 0, 1638362, 23, 0, 1638363, 23, 0, 1638364, 23, 0, 1703891, -1610612723, 0, 1703892, 23, 0, 1703893, 23, 0, 1703894, 23, 0, 1703895, 23, 0, 1703896, 23, 0, 1703897, 23, 0, 1703898, 23, 0, 1703899, 23, 0, 1769427, -1610612723, 0, 1769428, 23, 0, 1769429, 23, 0, 1769430, 23, 0, 1769431, 23, 0, 1769432, 23, 0, 1769433, 23, 0, 1769434, 23, 0, 1769435, 23, 0, 1769436, 23, 0, 1834963, -1610612723, 0, 1834964, 23, 0, 1834965, 23, 0, 1834966, 23, 0, 1834967, 23, 0, 1834968, 23, 0, 1834969, 23, 0, 1834970, 23, 0, 1834971, 23, 0, 1834972, 23, 0, 1900499, -1610612723, 0, 1900500, 23, 0, 1900501, 23, 0, 1900502, 23, 0, 1900503, 23, 0, 1900504, 23, 0, 1900505, 23, 0, 1900506, 23, 0, 1900507, 23, 0, 1900508, 23, 0, 1966035, -1610612723, 0, 1966036, 23, 0, 1966037, 23, 0, 1966038, 23, 0, 1966039, 23, 0, 1966040, 23, 0, 1966041, 23, 0, 1966042, 23, 0, 1966043, 23, 0, 1966044, 23, 0, 2031571, -1610612723, 0, 2031572, 23, 0, 2031573, 23, 0, 2031574, 23, 0, 2031575, 23, 0, 2031576, 23, 0, 2031577, 23, 0, 2031578, 23, 0, 2031579, 23, 0, 2097107, 15, 0, 2097108, 13, 0, 2097109, 13, 0, 2097110, 13, 0, 2097111, 13, 0, 2097112, 13, 0, 2097113, 13, 0, 2097114, 13, 0, 2097115, 13, 0, 2097116, 13, 0 )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMapWalls" type="TileMap" parent="TileMaps" index="1" groups=[
+"wall",
+]]
+
+z_index = 50
+z_as_relative = false
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -131075, -1610612726, 0, -131074, 1610612743, 0, -131073, 1610612743, 0, -196608, 1610612743, 0, -196607, 1610612743, 0, -196606, 1610612746, 0, -65539, -1610612729, 0, -131070, -1073741817, 0, -3, -1610612729, 0, -65534, -1073741817, 0, 65533, -1610612729, 0, 2, -1073741817, 0, 131069, -1610612729, 0, 65538, -1073741817, 0, 196601, -1610612726, 0, 196602, 1610612743, 0, 196603, 1610612743, 0, 196604, 1610612743, 0, 196605, -1610612727, 0, 131074, 1610612745, 0, 131075, 1610612743, 0, 131076, 1610612743, 0, 131077, 1610612743, 0, 131078, 1610612743, 0, 131079, 1610612743, 0, 131080, 1610612743, 0, 131081, 1610612743, 0, 131082, 1610612746, 0, 262137, -1610612729, 0, 196618, -1073741817, 0, 327673, -1610612729, 0, 262154, -1073741817, 0, 393209, -1610612729, 0, 327690, -1073741817, 0, 458745, 10, 0, 458746, 7, 0, 458747, 7, 0, 458748, 7, 0, 458749, 7, 0, 458750, 7, 0, 458751, 7, 0, 393216, 7, 0, 393217, 7, 0, 393218, 9, 0, 393224, -1073741815, 0, 393225, 7, 0, 393226, -1073741814, 0, 458754, 10, 0, 458755, 9, 0, 458759, -1073741815, 0, 458760, -1073741814, 0, 524291, -1610612729, 0, 524295, -1073741817, 0, 589827, 10, 0, 589828, 7, 0, 589829, 7, 0, 589830, 7, 0, 589831, -1073741814, 0 )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMapDecor" type="TileMap" parent="TileMaps" index="2"]
+
+scale = Vector2( 2, 2 )
+z_index = 100
+z_as_relative = false
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 196616, -1610612731, 0, 262152, 1610612749, 0, 262153, 1610612740, 0, 393213, 1610612763, 0, 458749, 26, 0, 524285, 26, 0, 589821, 1610612761, 0, 589822, -1610612710, 0, 589823, -1610612710, 0, 524288, -1610612710, 0, 524289, -1610612710, 0, 524290, -1610612710, 0, 524291, -1610612710, 0, 524292, 1610612760, 0 )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hints" type="Node2D" parent="." index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ThermoWalls" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TW" type="Node2D" parent="ThermoWalls" index="0"]
+
+position = Vector2( 128, 224 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Wall" parent="ThermoWalls/TW" index="0" instance=ExtResource( 4 )]
+
+modulate = Color( 1, 0.7, 0.4, 1 )
+temperature = 80.0
+
+[node name="Wall2" parent="ThermoWalls/TW" index="1" instance=ExtResource( 4 )]
+
+modulate = Color( 1, 0.7, 0.4, 1 )
+position = Vector2( 32, 0 )
+temperature = 80.0
+
+[node name="Wall3" parent="ThermoWalls/TW" index="2" instance=ExtResource( 4 )]
+
+modulate = Color( 1, 0.7, 0.4, 1 )
+position = Vector2( 64, 0 )
+temperature = 80.0
+
+[node name="Wall4" parent="ThermoWalls/TW" index="3" instance=ExtResource( 4 )]
+
+modulate = Color( 1, 0.7, 0.4, 1 )
+position = Vector2( 64, 32 )
+temperature = 80.0
+
+[node name="Wall5" parent="ThermoWalls/TW" index="4" instance=ExtResource( 4 )]
+
+modulate = Color( 1, 0.7, 0.4, 1 )
+position = Vector2( 32, 32 )
+temperature = 80.0
+
+[node name="Wall6" parent="ThermoWalls/TW" index="5" instance=ExtResource( 4 )]
+
+modulate = Color( 1, 0.7, 0.4, 1 )
+position = Vector2( 0, 32 )
+temperature = 80.0
+
+[node name="Meters and Doors" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Thermometer" parent="Meters and Doors" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 128, 256 )
+above = false
+
+[node name="Door" parent="Meters and Doors/Thermometer" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( -224, -96 )
+tile_set = ExtResource( 2 )
+tile_data = PoolIntArray( -131072, -1610612736, 0, -65536, -1610612736, 0, 0, -1610612736, 0 )
+
+[node name="Steams" type="Node2D" parent="." index="5"]
+
+editor/display_folded = true
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EffectSteam" parent="Steams" index="0" instance=ExtResource( 7 )]
+
+modulate = Color( 0, 0.501961, 1, 0.747412 )
+position = Vector2( 270.59, 143.13 )
+rotation = 1.57079
+
+[node name="Heatzone" parent="Steams/EffectSteam" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 12.5, -1.99998 )
+scale = Vector2( 1, 0.521232 )
+temperature = 30
+heat_factor = 4.0
+
+[node name="Teleporter" parent="." index="6" instance=ExtResource( 9 )]
+
+position = Vector2( -144, 144 )
+
+

@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/Wall.gd" type="Script" id=1]
+[ext_resource path="res://assets/heatwall.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 18.0
+
+[node name="Wall" type="StaticBody2D" index="0" groups=[
+"wall",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+heatable = true
+temperature = 50.0
+heat_capacity = 20.0
+heat_factor = 1.0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 16, 16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Collision" type="CollisionShape2D" parent="." index="1"]
+
+visible = false
+position = Vector2( 16, 16 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="HeatTransfer" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 16, 16 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="HeatTransferCollision" type="CollisionShape2D" parent="HeatTransfer" index="0"]
+
+shape = SubResource( 3 )
+
+

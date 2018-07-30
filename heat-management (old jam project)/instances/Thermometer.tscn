@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/Thermometer.gd" type="Script" id=1]
+[ext_resource path="res://assets/thermometer-indicator.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Thermometer" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+required_temperature = 60
+above = true
+
+[node name="Area" type="Area2D" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( 16, 16 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="Collision" type="CollisionShape2D" parent="Area" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+position = Vector2( 16, 16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+
